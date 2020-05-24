@@ -46,7 +46,6 @@ namespace zad9.Controllers
             if (ModelState.IsValid)
             {
                 db.Songs.Add(song);
-                song.Genre.Songs.Add(song);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -93,7 +92,6 @@ namespace zad9.Controllers
         public ActionResult Delete(int id)
         {
             Song song = db.Songs.Find(id);
-            song.Genre.Songs.Remove(song);
             db.Songs.Remove(song);
             db.SaveChanges();
             return RedirectToAction("Index");
