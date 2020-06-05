@@ -11,7 +11,7 @@ class App extends React.Component{
 	list = [];
 	constructor(props){
 		super(props);
-		this.state ={list:[]};
+		this.state ={list:[], filter:false};
 		this.addTask= this.addTask.bind(this);
 		this.filter= this.filter.bind(this);
 	}
@@ -19,16 +19,16 @@ class App extends React.Component{
 		this.setState({list:list});
 	}
 	
-	filter(v){
-		this.setState({filter:v});
+	filter(){
+		this.setState({filter:!this.state.filter});
 	}
 	render(){
 		return (<div id="app">
 			<h1>TODO List</h1>
 			<div id="boxApp">
 			<Filter onClick={this.filter}/>
-			<TaskList list={this.state.list} on/>
-			<NewTask list={this.state.list} onAddTask={this.addTask}/>
+			<TaskList list={this.state.list} filter={this.state.filter}/>
+			<NewTask list={this.state.list} onAddTask={this.addTask} filter={this.state.filter}/>
 			</div>
 		</div>);
 	}

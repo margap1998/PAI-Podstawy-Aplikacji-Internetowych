@@ -1,17 +1,19 @@
 import React from 'react';
 
 class Filter extends React.Component{
-	fun;
+	toErase;
 	constructor(props){
 		super(props);
-		this.fun = this.props.onClick;
+		this.routine = this.routine.bind(this);
 	}
-	static toErase = false;
+	routine(e){
+	this.props.onClick(!this.props.filter);	
+	}
 	render(){
 		return (
-		<div class="com">
-		<div class="compint">
-			<input type="checkbox" onClick= {()=>{Filter.toErase = !Filter.toErase; this.fun(Filter.toErase)}}>
+		<div className={"com"}>
+		<div className={"compint"}>
+			<input type="checkbox" onChange= {this.routine}>
 			</input>
 			<label>Hide completed</label>
 		</div></div>)

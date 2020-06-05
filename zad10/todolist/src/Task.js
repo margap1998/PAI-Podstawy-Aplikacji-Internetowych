@@ -1,5 +1,5 @@
 import React from 'react';
-import {Filter} from './Filter.js'
+
 class Task extends React.Component {
   constructor(props) {
     super(props);
@@ -15,10 +15,10 @@ class Task extends React.Component {
 		  }));
 	}
   render() {
-	if (Filter.toErase && this.state.isToggleOn) return "";
+	if (this.props.filter && this.state.isToggleOn) return "";
 	var className = (this.state.isToggleOn)? "TaskOff":"TaskOn";
 	return (
-		<div id={this.props.id} class="Task">
+		<div id={this.props.id} className={"Task"}>
 			<input type="checkbox" onChange={this.handleClick} checked={this.state.isToggleOn}>
 			</input>
 			<span className={className}>{this.state.name}</span>

@@ -21,8 +21,8 @@ class NewTask extends React.Component{
 		}
 	}
 	render(){
-		return (<div class="com">
-		<div class="compint">
+		return (<div className={"com"}>
+			<div className={"compint"}>
 			<input id="inputNewTask" onKeyDown={this.routineEnterKey}>
 			</input>
 			<label htmlFor="inputNewTask" onClick={(e) =>{this.routineOnClick(e)}}>
