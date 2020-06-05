@@ -1,63 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Task} from'./Task.js';
+import {NewTask} from'./NewTask.js';
 import {Filter} from './Filter.js'
+import {TaskList} from'./TaskList.js';
 import './style.css'
 
-class TaskList extends React.Component{
-	static list = []
-	static push(name)
-	{
-		TaskList.list.push(name);
-	}
-	render(){
-		if (TaskList.list.length<1)
-			return <div class="com">Nothing to do...</div>;
-		else
-		{
-			var tl = TaskList.list.map((el) => <Task name={el}/>);
-		return <div class="com">{tl}</div>;
-		}
-		
-	}
-}
 
-class NewTask extends React.Component{
-	
-	routine(e){
-		var inElement = document.getElementById("inputNewTask")
-		TaskList.push(inElement.value);
-		console.log(TaskList.list[TaskList.list.length-1]);
-		render();
+
+class App extends React.Component{
+	list = [];
+	constructor(props){
+		super(props);
+		this.state ={list:[]};
+		this.addTask= this.addTask.bind(this);
+		this.filter= this.filter.bind(this);
+	}
+	addTask(list){
+		this.setState({list:list});
 	}
 	
+	filter(v){
+		this.setState({filter:v});
+	}
 	render(){
-		return (<div class="com">
-		<div class="compint">
-			<input id="inputNewTask">
-			</input>
-			<label htmlFor="inputNewTask" onClick={this.routine}>
-				<button>
-					Add
-				</button>
-			</label>
-		</div></div>);
+		return (<div id="app">
+			<h1>TODO List</h1>
+			<div id="boxApp">
+			<Filter onClick={this.filter}/>
+			<TaskList list={this.state.list} on/>
+			<NewTask list={this.state.list} onAddTask={this.addTask}/>
+			</div>
+		</div>);
 	}
 }
 
-function App(){
-	return (<div id="app">
-		<h1>TODO List</h1>
-		<div id="boxApp">
-		<Filter onClick={render}/>
-		<TaskList/>
-		<NewTask onClick={render}/>
-		</div>
-	</div>);
-}
-
-function render(){	
-	ReactDOM.render(<App />,document.getElementById('root'))
-}
-
-render();
+ReactDOM.render(<App />,document.getElementById('root'))

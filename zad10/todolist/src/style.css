@@ -1,5 +1,9 @@
-
-
+*{
+	font-size:21px
+}
+h1{
+	font-size:42px
+}
 #app{
 	display:flex;
 	align-items:center;
@@ -7,7 +11,6 @@
 	
 	margin-left:12.5%;
 	width:75%;
-	border:2px solid black;
 }
 #boxApp{
 	display:flex;
@@ -15,14 +18,32 @@
 	flex-direction:column;
 	align-items:center;
 	
+	margin-left:12.5%;
+	width:75%;
+	border:2px solid black;
 	margin:0px;
 	width:100%;
+}
+.Task{
+	flex-wrap:wrap;
+	display:flex;
+	align-items:center;
+	flex-direction:row;
+	width:50%;
 }
 .com{
 	display:flex;
 	align-items:center;
 	flex-direction:column;
-	width:75%;
+	width:100%;
+	border-bottom:2px solid lightgrey;
+}
+.TaskList{
+	display:flex;
+	align-content: center;
+	flex-wrap:wrap;
+	flex-direction:row;
+	width:100%;
 	border-bottom:2px solid lightgrey;
 }
 .TaskOff{

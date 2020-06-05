@@ -11,9 +11,9 @@ class Filter extends React.Component{
 		return (
 		<div class="com">
 		<div class="compint">
-			<input type="checkbox" onClick= {()=>{Filter.toErase = !Filter.toErase; this.fun()}}>
+			<input type="checkbox" onClick= {()=>{Filter.toErase = !Filter.toErase; this.fun(Filter.toErase)}}>
 			</input>
-			<label>Filter</label>
+			<label>Hide completed</label>
 		</div></div>)
 		;
 	}
