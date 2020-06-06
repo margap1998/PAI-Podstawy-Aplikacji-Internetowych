@@ -11,7 +11,7 @@ class NewTask extends React.Component{
 		var id = this.state.newid;
 		this.setState({newid:(id+1)});
 		var inElement = document.getElementById("inputNewTask");
-		this.props.list.push({val:inElement.value,key:id});
+		this.props.list.push({val:inElement.value,key:id,checked:false});
 		this.props.onAddTask(this.props.list);
 		
 	}

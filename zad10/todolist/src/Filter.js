@@ -6,7 +6,7 @@ class Filter extends React.Component{
 		this.routine = this.routine.bind(this);
 	}
 	routine(e){
-	this.props.onClick(!this.props.filter);	
+	this.props.onClick();	
 	}
 	render(){
 		return (
