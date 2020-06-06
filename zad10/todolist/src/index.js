@@ -8,7 +8,6 @@ import './style.css'
 
 
 class App extends React.Component{
-	list = [];
 	constructor(props){
 		super(props);
 		this.state ={list:[], filter:false};
