@@ -33,7 +33,6 @@ class App extends React.Component{
 		}
 	}
 	render(){
-		console.log(this.state.activeTasks)
 		return (<div id="app">
 			<h1>TODO List</h1>
 			<div id="boxApp">

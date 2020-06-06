@@ -11,7 +11,6 @@ class TaskList extends React.Component{
 		this.props.onClick(this.props.list,val)
 	}
 	render(){
-		console.log(this.props.list)
 		if (this.props.list.length<1 || (this.props.activeTasks<1 && this.props.filter))
 		{return <div className={"com"}>Nothing to do...</div>;}
 		else
